@@ -17,7 +17,8 @@ The MCP server acts as a bridge between AI models and external APIs, providing s
 
 ### Server Setup
 
-<pre>``` @mcp.tool()
+<pre>``` 
+@mcp.tool()
 def get_weather(location: str = "London") -> dict:
     url = f"http://api.openweathermap.org/data/2.5/weather"
     params = {
@@ -34,7 +35,8 @@ def get_weather(location: str = "London") -> dict:
             "temperature": data["main"]["temp"]
         }
     else:
-        return {"error": f"API error: {response.status_code}"} ```</pre>
+        return {"error": f"API error: {response.status_code}"} 
+    ```</pre>
 
 2. Install dependencies:
     ```
