@@ -16,7 +16,15 @@ This repository contains an MCP server that exposes a weather tool using the Ope
 The MCP server acts as a bridge between AI models and external APIs, providing structured access to weather data.
 
 ### Server Setup
+```python
+mcp = FastMCP(
+    name="Weather",
+    host="0.0.0.0",  # only used for SSE transport (localhost)
+    port=8050,  # only used for SSE transport (set this to any port)
+    stateless_http=True,
+)
 
+### Define Tools
 ```python
 @mcp.tool()
 def get_weather(location: str = "London") -> dict:
@@ -40,53 +48,4 @@ def get_weather(location: str = "London") -> dict:
 
     ```
 
-### Configuration
 
-- Edit `weather.py` and set your OpenWeatherMap API key:
-    ```python
-    OPENWEATHER_API_KEY = "your_api_key_here"
-    ```
-
-## Usage
-
-### Start the MCP Weather Server
-
-You can run the server with any supported transport:
-
-- **SSE:**
-    ```
-    python weather.py sse
-    ```
-- **Stdio:**
-    ```
-    python weather.py stdio
-    ```
-- **Streamable HTTP:**
-    ```
-    python weather.py streamable_http
-    ```
-
-### Run the SSE Client
-
-Make sure the server is running with SSE transport:
-
-```
-python client.py
-```
-
-## Example Output
-
-```
-Available tools:
-  - get_weather: Get current weather for a location
-Weather in London: Clear sky, 22°C
-```
-
-## License
-
-MIT
-
----
-
-**Note:**  
-Replace `<your-username>/<repo-name>` with your actual GitHub username and repository name.
