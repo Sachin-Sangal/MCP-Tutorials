@@ -10,8 +10,7 @@ This repository contains an MCP server that exposes a weather tool using the [Op
 
 **Weather Service Architecture**
 
-<img width="887" height="185" alt="image" src="https://github.com/user-attachments/assets/76ca9163-a36b-470a-99c4-f79d682f3b71" />
-
+<img width="877" height="111" alt="image" src="https://github.com/user-attachments/assets/9839bf50-0675-4d15-b7c4-6803051d041f" />
 
 
 The MCP server acts as a bridge between AI models and external APIs, providing structured access to weather data.
