@@ -44,7 +44,45 @@ def get_weather(location: str = "London") -> dict:
             "temperature": data["main"]["temp"]
         }
     else:
-        return {"error": f"API error: {response.status_code}"}
-    ```
+       return {"error": f"API error: {response.status_code}"}
+   ```
+
+### Multiple Transports
+```python
+if __name__ == "__main__":
+    transport = "sse"
+    if transport == "stdio":
+        print("Running server with stdio transport")
+        mcp.run(transport="stdio")
+    elif transport == "sse":
+        print("Running server with SSE transport")
+        mcp.run(transport="sse")
+    elif transport == "streamable-http":
+        print("Running server with Streamable HTTP transport")
+        mcp.run(transport="streamable-http")
+    else:
+        raise ValueError(f"Unknown transport: {transport}")
+```
+
+### Building the web-client
+```python
+async def main():
+    # Connect to the server using SSE
+    async with sse_client("http://localhost:8050/sse") as (read_stream, write_stream):
+        async with ClientSession(read_stream, write_stream) as session:
+            # Initialize the connection
+            await session.initialize()
+
+            # List available tools
+            tools_result = await session.list_tools()
+            print("Available tools:")
+            for tool in tools_result.tools:
+                print(f"  - {tool.name}: {tool.description}")
+
+            # Call the weather tool
+            location = "London"
+            result = await session.call_tool("get_weather", arguments={"location": location})
+            print(f"Weather in {location}: {result.content[0].text}")
+```
 
 
