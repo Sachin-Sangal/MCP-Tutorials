@@ -18,8 +18,7 @@ The MCP server acts as a bridge between AI models and external APIs, providing s
 ### Server Setup
 
 1. Clone the repository:
-    ```
-@mcp.tool()
+   @mcp.tool()
 def get_weather(location: str = "London") -> dict:
     url = f"http://api.openweathermap.org/data/2.5/weather"
     params = {
@@ -37,8 +36,6 @@ def get_weather(location: str = "London") -> dict:
         }
     else:
         return {"error": f"API error: {response.status_code}"}
-    ```
-
 2. Install dependencies:
     ```
     pip install requests nest_asyncio
