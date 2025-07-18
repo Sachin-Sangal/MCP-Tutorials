@@ -16,26 +16,9 @@ This repository contains an MCP server that exposes a weather tool using the Ope
 The MCP server acts as a bridge between AI models and external APIs, providing structured access to weather data.
 
 ### Server Setup
-
-1. Clone the repository:
-   @mcp.tool()
-def get_weather(location: str = "London") -> dict:
-    url = f"http://api.openweathermap.org/data/2.5/weather"
-    params = {
-        "q": location,
-        "appid": OPENWEATHER_API_KEY,
-        "units": "metric"
-    }
-    response = requests.get(url, params=params)
-    if response.status_code == 200:
-        data = response.json()
-        return {
-            "location": location,
-            "weather": data["weather"][0]["description"],
-            "temperature": data["main"]["temp"]
-        }
-    else:
-        return {"error": f"API error: {response.status_code}"}
+ ```
+<img width="581" height="457" alt="image" src="https://github.com/user-attachments/assets/0e561688-9ebc-4b23-84d5-d0a7d7c75b4c" />
+ ```
 2. Install dependencies:
     ```
     pip install requests nest_asyncio
