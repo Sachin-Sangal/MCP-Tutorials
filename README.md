@@ -1,12 +1,12 @@
 # MCP Weather Server
-This repository contains an MCP server that exposes a weather tool using the [OpenWeatherMap API](https://openweathermap.org/api), and a Python SSE client to interact with it.
+This repository contains an MCP server that exposes a weather tool using the OpenWeatherMap API and a Python client to interact with it.
 
 
 ## Features
 
 - **Weather Tool**: Get current weather and temperature for any city.
 - **Multiple Transports**: Supports `stdio`, `sse`, and `streamable-http` protocols.
-- **SSE Client**: Example Python client for interacting with the server via SSE.
+- **SSE Client**: Python client for interacting with the server.
 
 **Weather Service Architecture**
 
@@ -15,12 +15,28 @@ This repository contains an MCP server that exposes a weather tool using the [Op
 
 The MCP server acts as a bridge between AI models and external APIs, providing structured access to weather data.
 
-### Installation
+### Server Setup
 
 1. Clone the repository:
     ```
-    git clone https://github.com/<your-username>/<repo-name>.git
-    cd <repo-name>
+@mcp.tool()
+def get_weather(location: str = "London") -> dict:
+    url = f"http://api.openweathermap.org/data/2.5/weather"
+    params = {
+        "q": location,
+        "appid": OPENWEATHER_API_KEY,
+        "units": "metric"
+    }
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        return {
+            "location": location,
+            "weather": data["weather"][0]["description"],
+            "temperature": data["main"]["temp"]
+        }
+    else:
+        return {"error": f"API error: {response.status_code}"}
     ```
 
 2. Install dependencies:
