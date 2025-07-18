@@ -38,16 +38,6 @@ def get_weather(location: str = "London") -> dict:
     else:
         return {"error": f"API error: {response.status_code}"}
 
-2. Install dependencies:
-    ```
-    pip install requests nest_asyncio
-    ```
-
-3. (Optional) Install MCP toolkit if not already:
-    ```
-    git clone https://github.com/microsoft/mcp-toolkit.git
-    cd mcp-toolkit
-    pip install .
     ```
 
 ### Configuration
