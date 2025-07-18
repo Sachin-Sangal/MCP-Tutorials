@@ -23,7 +23,7 @@ mcp = FastMCP(
     port=8050,  # only used for SSE transport (set this to any port)
     stateless_http=True,
 )
-
+```
 ### Define Tools
 ```python
 @mcp.tool()
@@ -45,7 +45,6 @@ def get_weather(location: str = "London") -> dict:
         }
     else:
         return {"error": f"API error: {response.status_code}"}
-
     ```
 
 
