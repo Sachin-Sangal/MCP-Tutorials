@@ -10,10 +10,9 @@ This repository contains an MCP server that exposes a weather tool using the [Op
 
 **Weather Service Architecture**
 
-┌─────────────┐    MCP Protocol   ┌──────────────┐    HTTP API    ┌────────────────┐
-│   Webclient │◄─────────────────►│ MCP Server   │◄──────────────►│ OPENWEATHERMAP │
-│             │                   │ (weather.py) │                │     API        │
-└─────────────┘                   └──────────────┘                └────────────────┘
+<img width="887" height="185" alt="image" src="https://github.com/user-attachments/assets/76ca9163-a36b-470a-99c4-f79d682f3b71" />
+
+
 
 The MCP server acts as a bridge between AI models and external APIs, providing structured access to weather data.
 
