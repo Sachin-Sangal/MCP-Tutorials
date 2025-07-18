@@ -16,9 +16,9 @@ This repository contains an MCP server that exposes a weather tool using the Ope
 The MCP server acts as a bridge between AI models and external APIs, providing structured access to weather data.
 
 ### Server Setup
- ```
+
 <img width="581" height="457" alt="image" src="https://github.com/user-attachments/assets/0e561688-9ebc-4b23-84d5-d0a7d7c75b4c" />
- ```
+
 2. Install dependencies:
     ```
     pip install requests nest_asyncio
