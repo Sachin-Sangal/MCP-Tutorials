@@ -116,3 +116,39 @@ CMD ["uv", "run", "weather.py"]
 
 <img width="620" height="565" alt="image" src="https://github.com/user-attachments/assets/2c72673b-8c7f-441b-aaea-7b5f350861f7" />
 
+
+### 1. Configuration
+Create and configure settings for your environment:
+
+```python
+
+# Server settings
+HOST=0.0.0.0
+PORT=8080
+DEBUG=false
+
+# MCP Servers to connect to
+MCP_SERVERS__WEATHER__HOST=localhost
+MCP_SERVERS__WEATHER__PORT=8001
+MCP_SERVERS__WEATHER__TAGS=weather,forecast,location
+
+MCP_SERVERS__NEWS__HOST=localhost
+MCP_SERVERS__NEWS__PORT=8002
+MCP_SERVERS__NEWS__TAGS=news,headlines,search
+
+```
+### 2. Run the Gateway
+
+```python
+
+# Using uv
+uv run python -m mcp_gateway.main
+
+# Or using python directly
+python -m mcp_gateway.main
+
+# Or using the entry point
+mcp-gateway
+
+```
+The gateway will start on http://localhost:8080 by default.
