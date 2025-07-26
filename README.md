@@ -114,26 +114,5 @@ CMD ["uv", "run", "weather.py"]
 ```
 ### MCP Gateway
 
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Team Client   │    │   Team Client   │    │   Team Client   │
-│     (Web App)   │    │  (Desktop App)  │    │   (CLI Tool)    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         └───────────────────────┼───────────────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │    MCP Gateway          │
-                    │  - Tool Discovery       │
-                    │  - Health Monitor       │
-                    │  - Request Routing      │
-                    │  - Protocol Translation │
-                    └─────────────────────────┘
-                                 │
-         ┌───────────────────────┼───────────────────────┐
-         │                       │                       │
-         ▼                       ▼                       ▼
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│  Weather Server │    │   News Server   │    │ Custom Server   │
-│     (Port 8001) │    │   (Port 8002)   │    │   (Port 8003)   │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+<img width="620" height="565" alt="image" src="https://github.com/user-attachments/assets/2c72673b-8c7f-441b-aaea-7b5f350861f7" />
+
